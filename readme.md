@@ -89,8 +89,6 @@ change to make it as though a change occured in the `app` project itself.
 
 ## To-Do
 
-### See if `@babel/core` can be removed without breaking the prototype
-
 ### Investigate **Prop `disabled` did not match. Server: "null" Client: "true"**
 
 ### Look into live reload of URL imports using Nodemon hacks
