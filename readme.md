@@ -93,6 +93,16 @@ change to make it as though a change occured in the `app` project itself.
 
 ### Look into live reload of URL imports using Nodemon hacks
 
+https://nextjs.org/docs/api-reference/next.config.js/url-imports#lockfile
+
+This says that when the file is served with the `Cache-Control: no-cache`
+response header, the lock file is skipped and the file is fetched anew each
+time.
+
+This would alleviate the need for Nodemon to keep resetting the cache, but it
+would not solve the problem with generating a live reload event in the call-site
+app. Nodemon would still be needed for that.
+
 ### Retry this in TypeScript mode and see what loader changes are needed
 
 Since in JavaScript, JS files have an implicit Webpack loader applied to them
