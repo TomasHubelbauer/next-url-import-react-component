@@ -99,6 +99,11 @@ This says that when the file is served with the `Cache-Control: no-cache`
 response header, the lock file is skipped and the file is fetched anew each
 time.
 
+It might be possible to control the live reload dev server responds headers
+using this config:
+
+https://nextjs.org/docs/api-reference/next.config.js/headers
+
 This would alleviate the need for Nodemon to keep resetting the cache, but it
 would not solve the problem with generating a live reload event in the call-site
 app. Nodemon would still be needed for that.
