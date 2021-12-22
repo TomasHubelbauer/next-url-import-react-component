@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import ToggleButton from '../ToggleButton.js'
+import ToggleButton from '../public/ToggleButton.js'
 import { useState } from 'react';
 
 export default function Home() {
