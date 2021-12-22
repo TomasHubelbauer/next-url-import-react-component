@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export default function ToggleButton({ leftChoice, rightChoice, onChange }) {
-  const [choice, setChoice] = useState();
+  const [choice, setChoice] = useState(false);
 
   function handleButtonClick() {
     setChoice(choice => !choice);
@@ -10,8 +10,8 @@ export default function ToggleButton({ leftChoice, rightChoice, onChange }) {
 
   return (
     <div>
-      <button disabled={choice} onClick={handleButtonClick}>{leftChoice}</button>
-      <button disabled={!choice} onClick={handleButtonClick}>{rightChoice}</button>
+      <button disabled={choice === true} onClick={handleButtonClick}>{leftChoice}</button>
+      <button disabled={choice === false} onClick={handleButtonClick}>{rightChoice}</button>
     </div>
   );
 }
