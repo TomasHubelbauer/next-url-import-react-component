@@ -92,3 +92,11 @@ change to make it as though a change occured in the `app` project itself.
 ### Investigate **Prop `disabled` did not match. Server: "null" Client: "true"**
 
 ### Look into live reload of URL imports using Nodemon hacks
+
+### Retry this in TypeScript mode and see what loader changes are needed
+
+Since in JavaScript, JS files have an implicit Webpack loader applied to them
+and the URL imported file doesn't, it is likely that in the case of Next
+TypeScript template, an implicit Webpack configuration used to support TS and
+TSX files will also not be applied to URL imports meaning we will need to find
+a TypeScript loader capable of transpiling TSX as well.
