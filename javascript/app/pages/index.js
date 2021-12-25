@@ -5,7 +5,7 @@ import ToggleButton from 'http://localhost:3001/ToggleButton.jsx';
 import { useState } from 'react';
 
 export default function Home() {
-  const [choice, setChoice] = useState();
+  const [choice, setChoice] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <ToggleButton leftChoice="on" rightChoice="off" onChange={setChoice} />
+        <ToggleButton leftChoice="on" rightChoice="off" choice={choice} onChange={setChoice} />
         <div>
           {choice ? 'left' : 'right'}
         </div>
