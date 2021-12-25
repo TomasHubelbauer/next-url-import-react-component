@@ -78,35 +78,33 @@ This will make the setup work.
 
 Next will create this directory as a cache of URL imports and it will keep a
 manifest file in `lock.json`. The cached files do not get updated after the
-source changes or the Next app rebuilds, the only way to update them that I
-found is to remove the record in `lock.json` and save it to make it rebuild
-itself.
+source changes or the Next app rebuilds, one way to update them that I found is
+to remove the record in `lock.json` and save it to make it rebuild itself.
+
+https://nextjs.org/docs/api-reference/next.config.js/url-imports#lockfile
 
 This could be solvable by using Nodemon to change `lock.json` to an empty object
 literal to cause it to rebuild the cache and live reload could be solved by
 having the same script that watches `component-app` touch `index.js` after each
 change to make it as though a change occured in the `app` project itself.
 
-## To-Do
-
-### Investigate **Prop `disabled` did not match. Server: "null" Client: "true"**
-
-### Look into live reload of URL imports using Nodemon hacks
-
-https://nextjs.org/docs/api-reference/next.config.js/url-imports#lockfile
-
-This says that when the file is served with the `Cache-Control: no-cache`
-response header, the lock file is skipped and the file is fetched anew each
-time.
-
-It might be possible to control the live reload dev server responds headers
-using this config:
+Another way is supposedly to set `Cache-Control: no-cache` response header on
+`ToggleButton.jsx` to tell Next to not cache the URL import. I have not tested
+this yet. It would alleviate the need to reset the cache but Nodemon would still
+be required for live reload.
 
 https://nextjs.org/docs/api-reference/next.config.js/headers
 
-This would alleviate the need for Nodemon to keep resetting the cache, but it
-would not solve the problem with generating a live reload event in the call-site
-app. Nodemon would still be needed for that.
+## To-Do
+
+### Document the other development mode downsides found later while testing
+
+It seems that saving `ToggleButton.tsx` does not cause live reload in either of
+the projects, I guess the Next watcher ignores `public` by default.
+
+### Look into live reload of URL imports using Nodemon hacks
+
+See the notes in the [`next.lock`](#nextlock) section above.
 
 ### Retry this in TypeScript mode and see what loader changes are needed
 
