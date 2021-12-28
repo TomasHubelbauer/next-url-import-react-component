@@ -113,3 +113,7 @@ and the URL imported file doesn't, it is likely that in the case of Next
 TypeScript template, an implicit Webpack configuration used to support TS and
 TSX files will also not be applied to URL imports meaning we will need to find
 a TypeScript loader capable of transpiling TSX as well.
+
+### Look into the linked package for Next watcher of `public` directory
+
+https://github.com/hashicorp/next-remote-watch
